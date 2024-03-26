@@ -1,31 +1,23 @@
-const textos = [
- "Benja",
- "Mica",
- "Male",
- "Papá",
- "Mamá"
-  ];
+const names = ["Benja", "Male", "Papá", "Mamá", "Mica"];
 
-  let textoAnterior = "";
+const getRandomName = () => {
+  return names[Math.floor(Math.random() * names.length)];
+}
 
-  function generarTexto() {
-    let textoAleatorio = obtenerTextoAleatorio();
-    
-   
-    document.getElementById("randomText").innerText = textoAleatorio;
+let animationInterval;
+let counter = 0;
 
-
-    textoAnterior = textoAleatorio;
-  }
-
-  function obtenerTextoAleatorio() {
-    let textoAleatorio = textoAnterior;
-
-   
-    while (textoAleatorio === textoAnterior) {
-      const indiceAleatorio = Math.floor(Math.random() * textos.length);
-      textoAleatorio = textos[indiceAleatorio];
+const startAnimation = () => {
+  animationInterval = setInterval(() => {
+    document.getElementById('random-text').textContent = getRandomName();
+    counter++;
+    if (counter >= 20) {
+      clearInterval(animationInterval);
     }
+  }, 100);
+}
 
-    return textoAleatorio;
-  }
+document.getElementById('start-button').addEventListener('click', () => {
+  counter = 0;
+  startAnimation();
+});
