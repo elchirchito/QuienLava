@@ -14,7 +14,7 @@ const startAnimation = () => {
     if (counter >= 25) {
       clearInterval(animationInterval);
     }
-  }, 45);
+  }, 50);
 }
 
 document.getElementById('start-button').addEventListener('click', () => {
