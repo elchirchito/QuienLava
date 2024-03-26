@@ -11,10 +11,10 @@ const startAnimation = () => {
   animationInterval = setInterval(() => {
     document.getElementById('random-text').textContent = getRandomName();
     counter++;
-    if (counter >= 20) {
+    if (counter >= 25) {
       clearInterval(animationInterval);
     }
-  }, 100);
+  }, 50);
 }
 
 document.getElementById('start-button').addEventListener('click', () => {
